@@ -1,6 +1,12 @@
 import org.junit.Test;
 import static org.junit.Assert.*;
 
+/**
+ * A property test.
+ *
+ * @author POO
+ * @version 03/2024
+ */
 public class PropertyTest {
     @Test
     public void testToString() {

@@ -31,6 +31,16 @@ public class CompanyTest {
     @Test
     public void testRegisterClient() {
         assertTrue(company.registerClient(client1));
+        assertEquals(1, company.getClients().size());
+        assertTrue(company.registerClient(client2));
+    }
+    
+    @Test
+    public void testRegisterClients() {
+        assertTrue(company.registerClient(client1));
+        assertTrue(company.registerClient(client2));
+        assertEquals(2, company.getClients().size());
+        assertTrue(company.registerClient(client1));
         assertTrue(company.registerClient(client2));
     }
 
@@ -46,5 +56,18 @@ public class CompanyTest {
         assertNotNull(company.getSellers());
         assertNotNull(company.getProperties());
         assertNotNull(company.getSells());
+    }
+    
+    @Test
+    public void testRegisterClientDuplicate(){
+        assertTrue(company.registerClient(client1));
+        assertFalse(company.registerClient(client1));
+        assertEquals(1, company.getClients().size());
+    }
+    
+    @Test
+    public void testRegisterClientNull(){
+        assertFalse(company.registerClient(null));
+        assertEquals(0, company.getClients().size());
     }
 }

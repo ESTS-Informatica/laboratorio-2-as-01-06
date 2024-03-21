@@ -73,8 +73,15 @@ public class Company {
      * @return true If the registration succeeds, false otherwise.
      */
     public boolean registerClient(User client) {
-        return clients.add(client);         // dummy implementation
+    if (client == null) {
+        return false; // Não é possível registrar um cliente nulo
     }
+    if (clients.contains(client)) {
+        return false; // Não é possível registrar o mesmo cliente duas vezes
+    }
+    return clients.add(client);
+}
+
 
     /**
      * Register a seller.
